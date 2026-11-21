@@ -1,0 +1,42 @@
+[project]
+name = "llm-reply-reviewer"
+version = "0.1.0"
+description = "LLM-powered pre-send review of customer-service replies: request coverage, grammar, clarity, tone and risk, with eval-gated prompts."
+readme = "README.md"
+authors = [
+    { name = "Cem Çınar" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi>=0.162.2",
+    "pydantic>=2.14.3",
+    "uvicorn>=0.54.0",
+]
+
+[build-system]
+requires = ["uv_build>=0.9.17,<0.10.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "httpx2>=2.16.0",
+    "jsonschema>=4.26.0",
+    "mypy>=2.4.1",
+    "pytest>=9.2.0",
+    "ruff>=0.17.4",
+    "types-jsonschema>=4.26.0.20261006",
+]
+
+# Ruff: Code format
+[tool.ruff]
+line-length = 88
+target-version = "py313"
+
+# Mypy: Static type check
+[tool.mypy]
+strict = true
+files = ["src", "tests"]
+
+# Pytest
+[tool.pytest.ini_options]
+testpaths = ["tests"]
