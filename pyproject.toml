@@ -27,6 +27,10 @@ dev = [
     "types-jsonschema>=4.26.0.20261006",
 ]
 
+# uv: same uv version locally and in CI
+[tool.uv]
+required-version = "==0.9.17"
+
 # Ruff: Code format
 [tool.ruff]
 line-length = 88
